@@ -23,6 +23,9 @@ textarea {
   margin-bottom: 10px;
 }
 
+
+
+
 /* タイポグラフィ */
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,21 +55,74 @@ p {
 
 /* ヘッダー */
 
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  font-style: italic;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: #fff;
+  color: #808080;
   text-decoration: none;
 }
+
+.navbar-default {
+    background-color: #008080;
+}
+
+
+.header-list {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+
+.header-list:hover {
+  color: #808080 !important;
+  text-decoration: none;
+}
+
+
+#dropdown-title {
+    background-color: #008080;
+}
+
+
+#top-main {
+  background-color:rgba(255,255,255,0);
+}
+
+#top-main-title {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    user-select: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+}
+
+
+
 
 /* デバッグウインドウ */
 
