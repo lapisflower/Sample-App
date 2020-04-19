@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # has_manyでuserが親でtasksが子、1対多の関係を示している。
+  # Userモデルが削除されると関連するtaskモデルも削除される。
+  has_many :tasks, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -14,6 +17,7 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
   
+  # ランダムなトークンを返す。
   def User.new_token
     SecureRandom.urlsafe_base64
   end
@@ -22,6 +26,7 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
   end
+  
   
   def authenticated?(remember_token)
     return false if remember_digest.nil?
