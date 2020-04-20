@@ -1,6 +1,36 @@
+<% provide(:title, @user.name) %>
+
 <div class="main posts-index">
   <div class="container">
-    <div class="posts-index-item">一覧ページ</div>
-    <div class="posts-index-item">index.html.erbテキスト写し</div>
+    <h1><%= @user.name %>のタスク一覧</h1>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <a class="btn btn-lg btn-primary pull-right">タスク新規作成</a>
+          <table class="table table-hover" id="table-tasks">
+            <thead>
+              <tr>
+                <th>名称</th>
+                <th>作成日</th>
+                <th></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>
+                  <a id="task-name", "#"></a>
+                </td>
+                <!-- 日付(作成日)↓↓↓　-->
+                <td></td>
+                <td>
+                  <a class="btn btn-success", "#">編集</a>
+                  <a date-confirm="○○○○を削除します。よろしいですか？" class="btn btn-danger" rel="nofollow" date-method="delete", "#">削除</a>
+                </td>
+              </tr>
+            </tbody>
+            
+          </table>
+      </div>
+    </div>
   </div>
 </div>
