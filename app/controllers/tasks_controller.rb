@@ -2,25 +2,29 @@ class TasksController < ApplicationController
   before_action :set_user
   
   def index
-    @tasks = @user.tasks
+    @task = @user.tasks.all
   end
   
   def show
   end
   
   def new
-    @task = Task.new
+     @task = Task.new
   end
   
-  # 要復習！！
+
   def create
-    @task = User.tasks.build(task_params)
+    @task = Task.new(task_params)
     if @task.save
-      flash[:success] = 'タスクを新規作成しました。'
+      flash[:success] = '
+      タスクを新規作成しました。'
       redirect_to user_tasks_url @user
     else
       render :new
     end
+  end
+  
+  def edit
   end
   
   private
@@ -28,5 +32,7 @@ class TasksController < ApplicationController
       @user = User.find(session[:user_id])
     end
     
+    def task_params
+      params.require(:task).permit(:name, :details, :user_id)
+    end
 end
-

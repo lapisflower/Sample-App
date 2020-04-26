@@ -5,7 +5,7 @@
     <h1><%= @user.name %>のタスク一覧</h1>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <%= link_to "タスク新規作成", new_user_task_path(params[:user_id]), class: "btn btn-lg btn-primary pull-right" %>
+        <%= link_to "タスク新規作成", new_user_task_path(current_user), class: "btn btn-lg btn-primary pull-right" %>
           <table class="table table-hover" id="table-tasks">
             <!-- 上の表の部分↓↓↓　-->
             <thead>
@@ -15,19 +15,20 @@
                 <th></th>
               </tr>
             </thead>
+            
             <!-- each文でタスク名と日付が出るようにする↓↓↓　-->
             <tbody>
+              <% @task.each do |task| %>
               <tr>
-                <!-- タスク名-->
-                <td><a id="task-name", "#"></a></td>
-                <!-- 日付(作成日)↓↓↓　-->
-                <td></td>
+                <td><%= "task.name" %></td>
+                <td><%= "task.created_at" %></td>
                 <!-- 編集・削除ボタン-->
                 <td>
                   <a class="btn btn-success", "#">編集</a>
                   <a date-confirm="○○○○を削除します。よろしいですか？" class="btn btn-danger" rel="nofollow" date-method="delete", "#">削除</a>
                 </td>
               </tr>
+              <% end %>
             </tbody>
           </table>
       </div>
