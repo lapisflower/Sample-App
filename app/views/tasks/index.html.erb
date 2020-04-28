@@ -21,11 +21,11 @@
               <% @task.each do |task| %>
               <tr>
                 <td><%= task.name %></td>
-                <td><%= task.created_at %></td>
+                <td><%= l(task.created_at, format: :short) %></td>
                 <!-- 編集・削除ボタン-->
-                <td>
-                  <a class="btn btn-success", "#">編集</a>
-                  <a date-confirm="○○○○を削除します。よろしいですか？" class="btn btn-danger" rel="nofollow" date-method="delete", "#">削除</a>
+                <td><%= link_to "編集", edit_user_task_path(@user,task), class: "btn btn-success" %>
+                    <%= link_to "削除", user_task_path(@user,task), method: :delete, 
+                    dete: {confirm: "#{task.name}を削除します。よろしいですか？"}, class: "btn btn-danger" %>
                 </td>
               </tr>
               <% end %>
