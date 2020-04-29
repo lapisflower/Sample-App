@@ -28,6 +28,13 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:success] = "削除しました。"
+    redirect_to user_tasks_url
+  end
+  
   private
     def set_user
       @user = User.find(session[:user_id])
