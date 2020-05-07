@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   before_action :set_user
- 
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  
+  
   def new
      @task = Task.new
   end
